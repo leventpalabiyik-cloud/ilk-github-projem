@@ -1,24 +1,161 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <title>İlk GitHub Projem</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Longevity Dashboard</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+header{
+    padding:30px;
+    text-align:center;
+    background:#111827;
+    border-bottom:1px solid #1e293b;
+}
+
+h1{
+    margin:0;
+    color:#38bdf8;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:30px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:25px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+
+.card h2{
+    margin-top:0;
+    color:#7dd3fc;
+}
+
+textarea{
+    width:100%;
+    height:120px;
+    border:none;
+    border-radius:12px;
+    padding:15px;
+    font-size:16px;
+    background:#0f172a;
+    color:white;
+}
+
+button{
+    margin-top:15px;
+    background:#38bdf8;
+    color:black;
+    border:none;
+    padding:14px 22px;
+    border-radius:12px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#0ea5e9;
+}
+
+#sonuc{
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.kucuk{
+    opacity:0.7;
+    font-size:14px;
+}
+
+</style>
 </head>
+
 <body>
 
-<h1>Merhaba GitHub</h1>
+<header>
+    <h1>AI Longevity Dashboard</h1>
+    <p>AI destekli içerik analiz sistemi</p>
+</header>
 
-<p>Bu benim ilk küçük web projem.</p>
+<div class="container">
 
-<button onclick="mesaj()">Bana Tıkla</button>
+    <div class="card">
+        <h2>YouTube Video Analizi</h2>
 
-<p id="sonuc"></p>
+        <textarea id="metin"
+        placeholder="YouTube transcript veya video notlarını buraya yapıştır..."></textarea>
+
+        <button onclick="analizEt()">
+            Analiz Et
+        </button>
+
+        <div id="sonuc"></div>
+    </div>
+
+    <div class="card">
+        <h2>Instagram İçerik Fikirleri</h2>
+
+        <ul>
+            <li>Kolesterol hakkında 3 yanlış bilgi</li>
+            <li>Uzun yaşam için sabah rutini</li>
+            <li>Longevity takviyeleri rehberi</li>
+            <li>Uyku optimizasyonu</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>AI Notları</h2>
+
+        <p class="kucuk">
+        Bu panel gelecekte:
+        YouTube analizleri,
+        otomatik özetleme,
+        AI içerik üretimi,
+        n8n otomasyonları
+        ve Instagram sistemleri ile genişletilecek.
+        </p>
+    </div>
+
+</div>
 
 <script>
-function mesaj() {
-  document.getElementById("sonuc").innerText =
-  "Tebrikler! İlk GitHub projen çalışıyor.";
+
+function analizEt(){
+
+    let metin =
+    document.getElementById("metin").value;
+
+    if(metin.length < 10){
+
+        document.getElementById("sonuc").innerHTML =
+        "Lütfen analiz için daha uzun bir metin gir.";
+
+        return;
+    }
+
+    document.getElementById("sonuc").innerHTML =
+    "<h3>AI Analiz Özeti</h3>" +
+    "<p>Bu içerik longevity, sağlık optimizasyonu ve yaşam süresi artırma temalarına odaklanıyor.</p>" +
+    "<p><b>Instagram İçeriği Önerisi:</b> 'Uzun yaşam için en kritik 3 alışkanlık'</p>" +
+    "<p><b>YouTube Shorts Fikri:</b> 'Bilim insanlarının önerdiği longevity rutini'</p>";
+
 }
+
 </script>
 
 </body>
